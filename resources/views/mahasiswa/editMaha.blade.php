@@ -36,11 +36,12 @@
                         <label for="colFormLabel" class="col-sm-2 col-form-label">Program Studi</label>
                         <div class="col-sm-10">
                             <select class="custom-select" name="prodi" required>
-                              <option value="1" @if ($mahaedit->prodis->id == 1) {{'selected'}} @endif >Teknologi Informasi</option>
-                              <option value="2" @if ($mahaedit->prodis->id == 2) {{'selected'}}@endif>Teknik Mesin</option>
-                              <option value="3" @if ($mahaedit->prodis->id == 3) {{'selected'}} @endif >Teknik Elektro 
-                              <option value="4" @if ($mahaedit->prodis->id == 4) {{'selected'}}@endif>Teknik Arsitektur</option>
-                              <option value="5" @if ($mahaedit->prodis->id == 5) {{'selected'}} @endif >Teknik Sipil</option>
+                                @foreach ($prodis as $prodi)
+                                <option value="{{ $prodi->id }}" @if ($mahaedit->prodis_id == $prodi->id)
+                                  selected                    
+                                @endif>{{ $prodi->prodi }}</option>
+                                 @endforeach
+                                 //dinamis dengan prodi baru
                             </select>
                             <div class="invalid-feedback">Maaf Input Salah</div>
                           </div>
