@@ -71,9 +71,10 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $mahaedit =  Mahasiswa::find($id);
+        $prodis = Prodi::get();
 
-        return view('mahasiswa.editMaha',['mahaedit'=>$mahaedit]);
-    }
+        return view('mahasiswa.editMaha',['mahaedit'=>$mahaedit,'prodis'=>$prodis]);
+    }   
 
     /**
      * Update the specified resource in storage.
